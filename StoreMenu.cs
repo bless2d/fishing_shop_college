@@ -193,8 +193,6 @@ namespace FishingStore
             Console.WriteLine($"Итого: {finalPrice} руб.");
             Console.WriteLine($"Начислено бонусов: {purchase.BonusEarned}");
         }
-            
-    }
         
         // TODO 3: Консультация по подбору снастей
         public void ProvideConsultation()

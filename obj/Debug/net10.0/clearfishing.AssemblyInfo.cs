@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("clearfishing")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71afdc3997ec82c3fb98afc63d62138b0da6ee5f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f493eaaea49e6ec8fe7df5c77b0a4bf31886f543")]
 [assembly: System.Reflection.AssemblyProductAttribute("clearfishing")]
 [assembly: System.Reflection.AssemblyTitleAttribute("clearfishing")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
