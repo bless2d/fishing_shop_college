@@ -56,7 +56,12 @@ namespace FishingStore
             // Создать новый объект Purchase
             // Установить текущую дату и номер покупки
             // Вернуть созданную покупку
-            return null;
+            Purchase purchase = new Purchase
+            {
+                PurchaseNumber = purchaseNumber,
+                PurchaseDate = DateTime.Now
+            };
+            return purchase;
         }
         
         // TODO 2: Добавить товар в покупку
