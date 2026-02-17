@@ -1,0 +1,5 @@
+C:\Users\user\Desktop\clearfishing\publish-portable\clearfishing.exe
+C:\Users\user\Desktop\clearfishing\publish-portable\clearfishing.dll
+C:\Users\user\Desktop\clearfishing\publish-portable\clearfishing.deps.json
+C:\Users\user\Desktop\clearfishing\publish-portable\clearfishing.runtimeconfig.json
+C:\Users\user\Desktop\clearfishing\publish-portable\clearfishing.pdb
