@@ -200,13 +200,51 @@ namespace FishingStore
         public void ProvideConsultation()
         {
             Console.WriteLine("=== КОНСУЛЬТАЦИЯ ПО ПОДБОРУ СНАСТЕЙ ===");
-            
+
             // 1. Запросить опыт рыболова (новичок, любитель, профи)
+            Console.Write("Ваш опыт (новичок/средний/опытный): ");
+            string experience = Console.ReadLine();
+
             // 2. Запросить тип ловли (спиннинг, фидер, поплавок, зимняя)
+            Console.Write("Тип ловли: ");
+            string fishingType = Console.ReadLine();
+
             // 3. Запросить бюджет
+            Console.Write("Бюджет (руб.): ");
+            if (!decimal.TryParse(Console.ReadLine(), out decimal budget)) budget = 10000;
+
             // 4. Подобрать товары из каталога по параметрам
+            List<FishingProduct> recommendations = new List<FishingProduct>();
+            var products = manager.GetAllProducts();
+
+            // Простая логика подбора
+            if (fishingType.ToLower().Contains("спиннинг"))
+            {
+                recommendations.AddRange(products.Where(p => p.ProductType == "Удочки" && p.Price <= budget / 3));
+                recommendations.AddRange(products.Where(p => p.ProductType == "Катушки" && p.Price <= budget / 3));
+                recommendations.AddRange(products.Where(p => p.ProductType == "Приманки" && p.Price <= budget / 3));
+            }
+            // Добавить больше логики по опыту и типу
+            
             // 5. Показать рекомендованные товары
+            Console.WriteLine("\nРекомендованные товары:");
+            foreach (var prod in recommendations.Distinct())
+            {
+                Console.WriteLine(prod.ToString());
+            }
             // 6. Предложить сформировать набор
+            Console.Write("Хотите сформировать набор из рекомендаций? (y/n): ");
+            if (Console.ReadLine().ToLower() == "y")
+            {
+                // Создать набор и добавить в manager
+                FishingSet customSet = new FishingSet(manager.GetAllFishingSets().Count + 1, "Персональный набор", fishingType, experience, "Подобранный набор");
+                foreach (var prod in recommendations.Distinct())
+                {
+                    customSet.AddItem(prod, 1);
+                }
+                manager.AddFishingSet(customSet);
+                Console.WriteLine("Набор создан и добавлен в каталог.");
+            }
         }
         
         // TODO 3: Показать статистику магазина
