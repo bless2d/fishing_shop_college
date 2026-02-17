@@ -64,19 +64,32 @@ namespace FishingStore
             return purchase;
         }
         
-        // TODO 2: Добавить товар в покупку
         public bool AddToPurchase(Purchase purchase, FishingProduct product, int quantity)
         {
             // Проверить наличие товара на складе (product.IsInStock)
-            // Если товар есть:
-            //   - Создать PurchaseItem
-            //   - Установить актуальную цену продукта
-            //   - Добавить в Items покупки
-            //   - Продать товар (product.Sell)
-            //   - Вернуть true
-            // Если товара нет:
-            //   - Вернуть false
-            return false;
+            if (product.IsInStock(quantity))
+            {
+                // Если товар есть:
+                //   - Создать PurchaseItem
+                PurchaseItem item = new PurchaseItem
+                {
+                    Product = product,
+                    Quantity = quantity,
+                    Price = product.Price // Установить актуальную цену продукта
+                };
+                //   - Добавить в Items покупки
+                purchase.Items.Add(item);
+                //   - Продать товар (product.Sell)
+                product.Sell(quantity);
+                //   - Вернуть true
+                return true;
+            }
+            else
+            {
+                // Если товара нет:
+                //   - Вернуть false
+                return false;
+            }
         }
         
         // TODO 3: Рассчитать стоимость покупки со скидкой
