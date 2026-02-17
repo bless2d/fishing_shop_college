@@ -26,7 +26,10 @@ namespace FishingStore
             // Добавить клиента в список customers
             // Увеличить nextCustomerId
             // Вернуть созданного клиента
-            return null;
+            Customer customer = new Customer(nextCustomerId, fullName, phone, experience, fishingType, DateTime.Today);
+            customers.Add(customer);
+            nextCustomerId++;
+            return customer;
         }
         
         // TODO 2: Найти клиента по номеру телефона
