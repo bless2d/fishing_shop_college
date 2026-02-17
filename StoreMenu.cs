@@ -32,6 +32,10 @@ namespace FishingStore
             FishingSet beginnerSet = new FishingSet(1, "Набор новичка", "Спиннинг", "Начальный", 
                 "Все необходимое для начала рыбалки на спиннинг");
             // TODO: Добавить товары в набор
+            beginnerSet.AddItem(manager.GetAllProducts().Find(p => p.Id == 1), 1); // Спиннинг
+            beginnerSet.AddItem(manager.GetAllProducts().Find(p => p.Id == 2), 1); // Катушка
+            beginnerSet.AddItem(manager.GetAllProducts().Find(p => p.Id == 3), 1); // Леска
+            beginnerSet.AddItem(manager.GetAllProducts().Find(p => p.Id == 4), 2); // Приманки
             manager.AddFishingSet(beginnerSet);
         }
         
@@ -43,6 +47,16 @@ namespace FishingStore
             // Получить все товары через manager.GetAllProducts()
             // Сгруппировать товары по типам (удочки, катушки, приманки и т.д.)
             // Для каждой категории вывести товары с детальной информацией
+            var products = manager.GetAllProducts();
+            var grouped = products.GroupBy(p => p.ProductType);
+            foreach (var group in grouped)
+            {
+                Console.WriteLine($"\n--- {group.Key} ---");
+                foreach (var product in group)
+                {
+                    Console.WriteLine(product.ToString());
+                }
+            }
         }
         
         // TODO 2: Показать рыболовные наборы
@@ -52,6 +66,12 @@ namespace FishingStore
             
             // Получить все наборы через manager.GetAllFishingSets()
             // Для каждого набора вызвать ShowSetComposition()
+            var sets = manager.GetAllFishingSets();
+            foreach (var set in sets)
+            {
+                set.ShowSetComposition();
+                Console.WriteLine();
+            }
         }
         
         // TODO 2: Оформить покупку
