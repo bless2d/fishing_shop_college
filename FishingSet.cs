@@ -17,6 +17,7 @@ namespace FishingStore
         private Dictionary<FishingProduct, int> items = new Dictionary<FishingProduct, int>(); // Товары и их количество
         
         // TODO 1: Добавить свойство Description (описание набора)
+        public string Description { get; set; }
         
         public FishingSet(int id, string name, string fishingType, string difficulty, string description)
         {
@@ -25,6 +26,7 @@ namespace FishingStore
             FishingType = fishingType;
             Difficulty = difficulty;
             // TODO 1: Сохранить описание
+            Description = description;
         }
         
         // TODO 2: Добавить товар в набор
@@ -32,6 +34,14 @@ namespace FishingStore
         {
             // Добавить товар в словарь items
             // Если товар уже есть - увеличить количество
+            if (items.ContainsKey(product))
+            {
+                items[product] += quantity;
+            }
+            else
+            {
+                items[product] = quantity;
+            }
         }
         
         // TODO 2: Рассчитать стоимость набора
