@@ -71,6 +71,13 @@ namespace FishingStore
             // Проверить для каждого товара в наборе:
             // product.IsInStock(quantity)
             // Вернуть true только если ВСЕ товары в наличии
+            foreach (var item in items)
+            {
+                if (!item.Key.IsInStock(item.Value))
+                {
+                    return false;
+                }
+            }
             return true;
         }
         
