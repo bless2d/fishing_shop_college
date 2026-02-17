@@ -253,9 +253,28 @@ namespace FishingStore
             Console.WriteLine("=== СТАТИСТИКА МАГАЗИНА ===");
             
             // Вывести общую выручку через manager.GetTotalRevenue()
+            Console.WriteLine($"Общая выручка: {manager.GetTotalRevenue()} руб.");
+            
             // Вывести количество зарегистрированных клиентов
+            Console.WriteLine($"Количество клиентов: {manager.GetCustomerCount()}");
+            
             // Вывести самые популярные категории товаров
+            var sales = manager.GetCategorySales();
+            if (sales.Any())
+            {
+                var topCategory = sales.OrderByDescending(s => s.Value).First();
+                Console.WriteLine($"Самая популярная категория: {topCategory.Key} ({topCategory.Value} продаж)");
+            }
+            
             // Вывести товары с низким остатком на складе (< 5 шт.)
+            Console.WriteLine("\nТовары с низким остатком:");
+            foreach (var product in manager.GetAllProducts())
+            {
+                if (product.StockQuantity < 5)
+                {
+                    Console.WriteLine($"{product.Name} - {product.StockQuantity} шт.");
+                }
+            }
         }
         
         // Готовый метод - главное меню
