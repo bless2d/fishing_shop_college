@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FishingStore
 {
@@ -172,6 +173,16 @@ namespace FishingStore
             
             // 7. Зафиксировать продажу
             manager.RecordSale(finalPrice);
+
+            // Метод для учета продаж товаров (для популярных товаров)
+        public void RecordProductSale(FishingProduct product, int quantity)
+        {
+            if (!categorySales.ContainsKey(product.ProductType))
+            {
+                categorySales[product.ProductType] = 0;
+            }
+            categorySales[product.ProductType] += quantity;
+        }
             
             // 8. Начислить бонусы
             customer.AddBonusPoints(finalPrice);
@@ -193,7 +204,7 @@ namespace FishingStore
             Console.WriteLine($"Итого: {finalPrice} руб.");
             Console.WriteLine($"Начислено бонусов: {purchase.BonusEarned}");
         }
-        
+
         // TODO 3: Консультация по подбору снастей
         public void ProvideConsultation()
         {
