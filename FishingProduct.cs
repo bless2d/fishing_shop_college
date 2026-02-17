@@ -14,6 +14,7 @@ namespace FishingStore
         public int StockQuantity { get; set; }         // Количество на складе
         
         // TODO 1: Добавить свойство ProductType (тип: удочки, катушки, лески, приманки, одежда)
+        public string ProductType { get; set; }
         
         public FishingProduct(int id, string name, string brand, decimal price, int stock, string type)
         {
@@ -23,10 +24,16 @@ namespace FishingStore
             
             // TODO 2: Проверить что цена не отрицательная
             // Если цена < 0, установить минимальную цену 10
+            Price = price;
+            if (Price < 0) Price = 10;
             
+            // TODO 2: Проверить что остаток на складе не отрицательный
+            // Если stock < 0, установить 0
             StockQuantity = stock;
-            
+            if (StockQuantity < 0) StockQuantity = 0;
+
             // TODO 1: Сохранить тип товара
+            ProductType = type;
         }
         
         public override string ToString()
