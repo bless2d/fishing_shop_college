@@ -123,6 +123,28 @@ namespace FishingStore
             // Начислить 1% от суммы покупки в бонусные баллы
             bonusPoints += purchaseAmount * 0.01m;
         }
+
+        // Метод для использования бонусов (дополнительно, для системы скидок)
+        public bool UseBonusPoints(decimal amount)
+        {
+            if (bonusPoints >= amount)
+            {
+                bonusPoints -= amount;
+                return true;
+            }
+            return false;
+        }
+        // Получить текущие бонусные баллы
+        public decimal GetBonusPoints()
+        {
+            return bonusPoints;
+        }
+        
+        // Завершить покупку (добавить в историю)
+        public void CompletePurchase(Purchase purchase)
+        {
+            purchaseHistory.Add(purchase);
+        }
         
         // Показать информацию о рыболове
         public void ShowCustomerInfo()
