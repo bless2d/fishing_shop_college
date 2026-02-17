@@ -22,6 +22,17 @@ namespace FishingStore
         
         private List<Purchase> purchaseHistory = new List<Purchase>();
         private decimal bonusPoints = 0; // Бонусные баллы
+
+        // Добавлен конструктор, принимающий 6 аргументов
+        public Customer(int id, string fullName, string phone, string experience, string fishingType, DateTime registrationDate)
+        {
+            Id = id;
+            FullName = fullName;
+            Phone = phone;
+            FishingExperience = experience;
+            PreferredFishingType = fishingType;
+            RegistrationDate = registrationDate;
+        }
         
         public class PurchaseItem
         {
