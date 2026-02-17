@@ -1,8 +1,3 @@
-// TODO:
-// 1. Реализовать отображение товаров по категориям
-// 2. Реализовать процесс покупки товаров и наборов
-// 3. Реализовать консультацию по подбору снастей
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -173,16 +168,6 @@ namespace FishingStore
             
             // 7. Зафиксировать продажу
             manager.RecordSale(finalPrice);
-
-            // Метод для учета продаж товаров (для популярных товаров)
-        public void RecordProductSale(FishingProduct product, int quantity)
-        {
-            if (!categorySales.ContainsKey(product.ProductType))
-            {
-                categorySales[product.ProductType] = 0;
-            }
-            categorySales[product.ProductType] += quantity;
-        }
             
             // 8. Начислить бонусы
             customer.AddBonusPoints(finalPrice);
@@ -204,28 +189,28 @@ namespace FishingStore
             Console.WriteLine($"Итого: {finalPrice} руб.");
             Console.WriteLine($"Начислено бонусов: {purchase.BonusEarned}");
         }
-
+        
         // TODO 3: Консультация по подбору снастей
         public void ProvideConsultation()
         {
             Console.WriteLine("=== КОНСУЛЬТАЦИЯ ПО ПОДБОРУ СНАСТЕЙ ===");
-
+            
             // 1. Запросить опыт рыболова (новичок, любитель, профи)
             Console.Write("Ваш опыт (новичок/средний/опытный): ");
             string experience = Console.ReadLine();
-
+            
             // 2. Запросить тип ловли (спиннинг, фидер, поплавок, зимняя)
             Console.Write("Тип ловли: ");
             string fishingType = Console.ReadLine();
-
+            
             // 3. Запросить бюджет
             Console.Write("Бюджет (руб.): ");
             if (!decimal.TryParse(Console.ReadLine(), out decimal budget)) budget = 10000;
-
+            
             // 4. Подобрать товары из каталога по параметрам
             List<FishingProduct> recommendations = new List<FishingProduct>();
             var products = manager.GetAllProducts();
-
+            
             // Простая логика подбора
             if (fishingType.ToLower().Contains("спиннинг"))
             {
@@ -241,6 +226,7 @@ namespace FishingStore
             {
                 Console.WriteLine(prod.ToString());
             }
+            
             // 6. Предложить сформировать набор
             Console.Write("Хотите сформировать набор из рекомендаций? (y/n): ");
             if (Console.ReadLine().ToLower() == "y")
@@ -260,7 +246,7 @@ namespace FishingStore
         public void ShowStoreStats()
         {
             Console.WriteLine("=== СТАТИСТИКА МАГАЗИНА ===");
-
+            
             // Вывести общую выручку через manager.GetTotalRevenue()
             Console.WriteLine($"Общая выручка: {manager.GetTotalRevenue()} руб.");
             
