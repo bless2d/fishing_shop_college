@@ -16,7 +16,9 @@ namespace FishingStore
         public DateTime RegistrationDate { get; set; }
         
         // TODO 1: Добавить свойство FishingExperience (опыт: новичок, любитель, профи)
+        public string FishingExperience { get; set; }
         // TODO 1: Добавить свойство PreferredFishingType (предпочитаемый вид ловли: спиннинг, фидер, поплавок)
+        public string PreferredFishingType { get; set; }
         
         private List<Purchase> purchaseHistory = new List<Purchase>();
         private decimal bonusPoints = 0; // Бонусные баллы
