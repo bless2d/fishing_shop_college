@@ -100,10 +100,19 @@ namespace FishingStore
             
             // Пройти по всем товарам в покупке
             // Суммировать: item.Price * item.Quantity
-            
+            foreach (var item in purchase.Items)
+            {
+                total += item.Price * item.Quantity;
+            }
             // Применить скидку в зависимости от опыта рыболова:
             // Новичок: 5%, Любитель: 10%, Профи: 15%
             // ИЛИ использовать бонусные баллы (1 балл = 1 рубль)
+            decimal discountPercent = 0;
+            if (FishingExperience == "Новичок") discountPercent = 0.05m;
+            else if (FishingExperience == "Любитель") discountPercent = 0.10m;
+            else if (FishingExperience == "Профи") discountPercent = 0.15m;
+            
+            discount = total * discountPercent;
             
             return total - discount;
         }
