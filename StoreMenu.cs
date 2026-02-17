@@ -194,7 +194,7 @@ namespace FishingStore
             Console.WriteLine($"Начислено бонусов: {purchase.BonusEarned}");
         }
             
-        }
+    }
         
         // TODO 3: Консультация по подбору снастей
         public void ProvideConsultation()
@@ -251,7 +251,7 @@ namespace FishingStore
         public void ShowStoreStats()
         {
             Console.WriteLine("=== СТАТИСТИКА МАГАЗИНА ===");
-            
+
             // Вывести общую выручку через manager.GetTotalRevenue()
             Console.WriteLine($"Общая выручка: {manager.GetTotalRevenue()} руб.");
             
