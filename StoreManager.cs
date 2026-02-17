@@ -59,6 +59,7 @@ namespace FishingStore
         public void RecordSale(decimal amount)
         {
             // Увеличить totalRevenue на amount
+            totalRevenue += amount;
         }
         
         // Готовые методы:
