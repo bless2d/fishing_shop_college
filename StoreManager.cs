@@ -38,6 +38,13 @@ namespace FishingStore
             // Пройти по всем клиентам в списке customers
             // Если телефон совпадает - вернуть клиента
             // Если не найден - вернуть null
+            foreach (var customer in customers)
+            {
+                if (customer.Phone == phone)
+                {
+                    return customer;
+                }
+            }
             return null;
         }
         
