@@ -80,6 +80,10 @@ namespace FishingStore
             }
             return true;
         }
+        public Dictionary<FishingProduct, int> GetItems()
+        {
+            return items;  // Возвращает приватный словарь товаров
+        }
         
         // Показать состав набора
         public void ShowSetComposition()

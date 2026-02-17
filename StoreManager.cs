@@ -16,6 +16,7 @@ namespace FishingStore
         private int nextCustomerId = 1;
         private int nextPurchaseNumber = 1000;
         private decimal totalRevenue = 0;
+        private Dictionary<string, int> categorySales = new Dictionary<string, int>(); // Для учета популярных товаров по категориям
         
         // TODO 1: Зарегистрировать нового клиента
         public Customer RegisterCustomer(string fullName, string phone, string experience, string fishingType)
@@ -92,7 +93,7 @@ namespace FishingStore
         {
             return customers.Count;
         }
-        
+
         public Dictionary<string, int> GetCategorySales()
         {
             return categorySales;
