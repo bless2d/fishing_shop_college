@@ -100,7 +100,10 @@ namespace FishingStore
             foreach (var product in products)
             {
                 // TODO: Добавить проверку типа товара
-                result.Add(product);
+                if (product.ProductType == type)
+                {
+                    result.Add(product);
+                }
             }
             return result;
         }
