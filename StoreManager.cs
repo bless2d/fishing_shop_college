@@ -93,6 +93,11 @@ namespace FishingStore
             return customers.Count;
         }
         
+        public Dictionary<string, int> GetCategorySales()
+        {
+            return categorySales;
+        }
+        
         // Поиск товаров по типу
         public List<FishingProduct> FindProductsByType(string type)
         {
