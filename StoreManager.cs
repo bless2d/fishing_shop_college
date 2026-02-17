@@ -1,8 +1,4 @@
-// TODO:
-// 1. Реализовать регистрацию новых клиентов-рыболовов
-// 2. Реализовать поиск клиента по телефону
-// 3. Реализовать учет продаж и популярных товаров
-
+using System;
 using System.Collections.Generic;
 
 namespace FishingStore
@@ -112,6 +108,20 @@ namespace FishingStore
                 }
             }
             return result;
+        }
+
+        // Метод для записи продажи продукта (уменьшает количество на складе и обновляет статистику)
+        public void RecordProductSale(FishingProduct product, int quantity)
+        {
+            // Уменьшить количество на складе
+            product.StockQuantity -= quantity;
+
+            // Обновить статистику продаж по категориям
+            if (!categorySales.ContainsKey(product.ProductType))
+            {
+                categorySales[product.ProductType] = 0;
+            }
+            categorySales[product.ProductType] += quantity;
         }
     }
 }

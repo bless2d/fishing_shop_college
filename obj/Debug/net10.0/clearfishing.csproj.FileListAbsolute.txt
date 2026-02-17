@@ -3,3 +3,13 @@ C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\clearfishing.AssemblyInfoIn
 C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\clearfishing.AssemblyInfo.cs
 C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\clearfishing.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\clearfishing.sourcelink.json
+C:\Users\user\Desktop\clearfishing\bin\Debug\net10.0\clearfishing.exe
+C:\Users\user\Desktop\clearfishing\bin\Debug\net10.0\clearfishing.deps.json
+C:\Users\user\Desktop\clearfishing\bin\Debug\net10.0\clearfishing.runtimeconfig.json
+C:\Users\user\Desktop\clearfishing\bin\Debug\net10.0\clearfishing.dll
+C:\Users\user\Desktop\clearfishing\bin\Debug\net10.0\clearfishing.pdb
+C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\clearfishing.dll
+C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\refint\clearfishing.dll
+C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\clearfishing.pdb
+C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\clearfishing.genruntimeconfig.cache
+C:\Users\user\Desktop\clearfishing\obj\Debug\net10.0\ref\clearfishing.dll
