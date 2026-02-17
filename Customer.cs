@@ -156,5 +156,21 @@ namespace FishingStore
             Console.WriteLine($"Бонусных баллов: {bonusPoints:F0}");
             Console.WriteLine($"Всего покупок: {purchaseHistory.Count}");
         }
+        // Показать историю покупок
+        public void ShowPurchaseHistory()
+        {
+            Console.WriteLine($"История покупок для {FullName}:");
+            foreach (var purchase in purchaseHistory)
+            {
+                Console.WriteLine($"Покупка №{purchase.PurchaseNumber} от {purchase.PurchaseDate:dd.MM.yyyy HH:mm}");
+                Console.WriteLine($"Сумма: {purchase.TotalAmount} руб., Бонусы начислены: {purchase.BonusEarned}");
+                Console.WriteLine("Товары:");
+                foreach (var item in purchase.Items)
+                {
+                    Console.WriteLine($"  {item.Product.Name} x{item.Quantity} - {item.Price} руб. за шт.");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
