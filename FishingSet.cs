@@ -51,6 +51,10 @@ namespace FishingStore
             
             // Пройти по всем товарам в наборе
             // Суммировать: product.Price * quantity
+            foreach (var item in items)
+            {
+                total += item.Key.Price * item.Value;
+            }
             return total;
         }
         
